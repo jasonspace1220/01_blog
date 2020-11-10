@@ -12,14 +12,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+Route::get('/{path}', function () {
     return view('welcome');
-});
+})->where('path', '^((?!api).)*$');
 
-Route::get('/gg',function(){
-    echo phpinfo();
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/abc','AbcController@index');
-Route::get('/abc/create','AbcController@create');
+// Route::get('/gg',function(){
+//     echo phpinfo();
+// });
+
+// Route::get('/abc','AbcController@index');
+// Route::get('/abc/create','AbcController@create');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
