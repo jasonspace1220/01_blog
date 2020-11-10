@@ -47,7 +47,8 @@ class AuthController extends Controller
                 $token = $user->createToken('MyTokenName')->accessToken;
                 $response = [
                     'status' => 'success',
-                    'token' => $token
+                    'token' => $token,
+                    'user' => $user
                 ];
                 return response($response, 200);
             } else {

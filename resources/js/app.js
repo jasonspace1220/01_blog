@@ -34,9 +34,18 @@
 import Vue from "vue"
 import router from "./router"
 import store from "./store/index"
+import axios from "axios"
+import App from "./App.vue"
+
+Vue.prototype.$http = axios;
+const token = localStorage.getItem('token')
+if(token){
+    Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+}
 
 export default new Vue({
     el : "#app",
     router:router,
-    store:store
+    store:store,  
+    render: h => h(App),
 })
